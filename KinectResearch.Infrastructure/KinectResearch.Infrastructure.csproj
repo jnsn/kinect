@@ -33,6 +33,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\Libraries\Prism\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
@@ -47,21 +48,37 @@
   <ItemGroup>
     <Compile Include="AbstractViewModel.cs" />
     <Compile Include="Controls\CanvasEx.cs" />
+    <Compile Include="Controls\KinectButton.xaml.cs">
+      <DependentUpon>KinectButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\AbstractMarkupExtension.cs" />
     <Compile Include="Converters\AbstractValueConverter.cs" />
     <Compile Include="Converters\BoolToScaleXConverter.cs" />
-    <Compile Include="Events\MenuSwipeEvent.cs" />
     <Compile Include="Events\SkeletonFrameUpdate.cs" />
+    <Compile Include="Events\SwitchMenu.cs" />
+    <Compile Include="Events\SwitchPreviewView.cs" />
     <Compile Include="Events\VideoFrameUpdate.cs" />
+    <Compile Include="Interfaces\IPreviewService.cs" />
+    <Compile Include="VisualTreeHelperExtensions.cs" />
+    <Compile Include="Interfaces\IColorPreviewView.cs" />
     <Compile Include="Interfaces\IKinectService.cs" />
     <Compile Include="Interfaces\IMenuService.cs" />
+    <Compile Include="Interfaces\IMenuView.cs" />
     <Compile Include="Interfaces\ISettingsService.cs" />
+    <Compile Include="Interfaces\ISkeletonPreviewView.cs" />
     <Compile Include="KinectException.cs" />
-    <Compile Include="MenuSwipeState.cs" />
+    <Compile Include="Gesture.cs" />
+    <Compile Include="MenuStatus.cs" />
     <Compile Include="Model\Settings.cs" />
+    <Compile Include="PreviewView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Controls\KinectButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

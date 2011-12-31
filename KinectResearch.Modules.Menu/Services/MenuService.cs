@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using KinectResearch.Infrastructure;
 using KinectResearch.Infrastructure.Events;
 using KinectResearch.Infrastructure.Interfaces;
 using KinectResearch.Modules.Core.Gestures;
@@ -11,11 +11,12 @@ namespace KinectResearch.Modules.Menu.Services
 {
 	public class MenuService : IMenuService
 	{
+		private readonly BarycenterHelper _barycenterHelper = new BarycenterHelper();
 		private readonly IEventAggregator _eventAggregator;
+		private readonly AbstractGestureDetector _gestureDetector = new SwipeGestureDetector();
 		private readonly IKinectService _kinectService;
 
-		private readonly AbstractGestureDetector _swipeGestureDetector = new SwipeGestureDetector();
-		private readonly BarycenterHelper _barycenterHelper = new BarycenterHelper();
+		private MenuStatus _menuStatus = MenuStatus.Close;
 
 		public MenuService(IEventAggregator eventAggregator, IKinectService kinectService)
 		{
@@ -23,11 +24,24 @@ namespace KinectResearch.Modules.Menu.Services
 			_kinectService = kinectService;
 
 			_eventAggregator.GetEvent<SkeletonFrameUpdate>().Subscribe(OnSkeletonFrameUpdate);
+
+			_gestureDetector.MinimalPeriodBetweenGestures = 1000;
+			_gestureDetector.GestureDetected += OnGestureDetected;
+		}
+
+		private void OnGestureDetected(Gesture gesture)
+		{
+			if (gesture == Gesture.Right)
+			{
+				_menuStatus = _menuStatus == MenuStatus.Close ? MenuStatus.Open : MenuStatus.Close;
+				_eventAggregator.GetEvent<SwitchMenu>().Publish(_menuStatus);
+			}
 		}
 
 		private void OnSkeletonFrameUpdate(SkeletonData data)
 		{
 			_barycenterHelper.Add(data.Position.ToVector3(), data.TrackingID);
+
 			if (_barycenterHelper.IsStable(data.TrackingID))
 			{
 				var joints = data.Joints
@@ -37,7 +51,7 @@ namespace KinectResearch.Modules.Menu.Services
 
 				foreach (var joint in joints)
 				{
-					_swipeGestureDetector.Add(joint.Position, _kinectService.Kinect.SkeletonEngine);
+					_gestureDetector.Add(joint.Position, _kinectService.Kinect.SkeletonEngine);
 				}
 			}
 		}

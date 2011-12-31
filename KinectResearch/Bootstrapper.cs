@@ -20,13 +20,14 @@ namespace KinectResearch
 		protected override void InitializeModules()
 		{
 			Container.Resolve<CoreModule>().Initialize();
-			Container.Resolve<MenuModule>().Initialize();
 			Container.Resolve<PreviewModule>().Initialize();
+			Container.Resolve<MenuModule>().Initialize();
 		}
 
 		public void UninitializeModules()
 		{
 			Container.Resolve<CoreModule>().Uninitialize();
+			Container.Resolve<PreviewModule>().Uninitialize();
 		}
 	}
 }

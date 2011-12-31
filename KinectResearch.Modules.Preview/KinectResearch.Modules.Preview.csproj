@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="PreviewModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PreviewService.cs" />
     <Compile Include="Views\ColorPreviewView.xaml.cs">
       <DependentUpon>ColorPreviewView.xaml</DependentUpon>
     </Compile>

@@ -20,7 +20,7 @@ namespace KinectResearch.Modules.Core.Gestures
 
 		public float Length
 		{
-			get { return (float) Math.Sqrt(X*X + Y*Y + Z*Z); }
+			get { return (float) Math.Sqrt(X * X + Y * Y + Z * Z); }
 		}
 
 		public static Vector3 operator -(Vector3 left, Vector3 right)
@@ -35,17 +35,17 @@ namespace KinectResearch.Modules.Core.Gestures
 
 		public static Vector3 operator *(Vector3 left, float value)
 		{
-			return new Vector3(left.X*value, left.Y*value, left.Z*value);
+			return new Vector3(left.X * value, left.Y * value, left.Z * value);
 		}
 
 		public static Vector3 operator *(float value, Vector3 left)
 		{
-			return left*value;
+			return left * value;
 		}
 
 		public static Vector3 operator /(Vector3 left, float value)
 		{
-			return new Vector3(left.X/value, left.Y/value, left.Z/value);
+			return new Vector3(left.X / value, left.Y / value, left.Z / value);
 		}
 	}
 }

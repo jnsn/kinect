@@ -1,5 +1,4 @@
-﻿using System;
-using Coding4Fun.Kinect.Wpf;
+﻿using Coding4Fun.Kinect.Wpf;
 using KinectResearch.Infrastructure;
 using KinectResearch.Infrastructure.Events;
 using Microsoft.Practices.Prism.Events;
@@ -27,10 +26,10 @@ namespace KinectResearch.Modules.Preview.Views
 			HeadLeft = 0.0;
 			HeadTop = 0.0;
 
-			LeftHandLeft = 100.0;
+			LeftHandLeft = 50.0;
 			LeftHandTop = 0.0;
 
-			RightHandLeft = 50.0;
+			RightHandLeft = 100.0;
 			RightHandTop = 0.0;
 		}
 
@@ -150,12 +149,14 @@ namespace KinectResearch.Modules.Preview.Views
 
 		private void OnSkeletonFrameUpdate(SkeletonData data)
 		{
-			int width = (int) ActualControlWidth;
-			int height = (int) ActualControlHeight;
+			//int width = (int) ActualControlWidth;
+			//int height = (int) ActualControlHeight;
+			const int WIDTH = 480;
+			const int HEIGHT = 320;
 
-			var scaledHead = data.Joints[JointID.Head].ScaleTo(width, height, .5f, .5f);
-			var scaledLeftHand = data.Joints[JointID.HandLeft].ScaleTo(width, height, .5f, .5f);
-			var scaledRightHand = data.Joints[JointID.HandRight].ScaleTo(width, height, .5f, .5f);
+			var scaledHead = data.Joints[JointID.Head].ScaleTo(WIDTH, HEIGHT, .7f, .7f);
+			var scaledLeftHand = data.Joints[JointID.HandLeft].ScaleTo(WIDTH, HEIGHT, .7f, .7f);
+			var scaledRightHand = data.Joints[JointID.HandRight].ScaleTo(WIDTH, HEIGHT, .7f, .7f);
 
 			HeadLeft = scaledHead.Position.X;
 			HeadTop = scaledHead.Position.Y;

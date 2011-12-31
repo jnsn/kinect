@@ -1,11 +1,12 @@
 ﻿using System.Windows;
+using KinectResearch.Infrastructure.Interfaces;
 
 namespace KinectResearch.Modules.Preview.Views
 {
 	/// <summary>
 	/// Interaction logic for SkeletonPreviewView.xaml
 	/// </summary>
-	public partial class SkeletonPreviewView
+	public partial class SkeletonPreviewView : ISkeletonPreviewView
 	{
 		private readonly SkeletonPreviewViewModel _skeletonPreviewViewModel;
 

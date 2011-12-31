@@ -1,11 +1,12 @@
 ﻿using System.Windows;
+using KinectResearch.Infrastructure.Interfaces;
 
 namespace KinectResearch.Modules.Preview.Views
 {
 	/// <summary>
 	/// Interaction logic for ColorPreviewView.xaml
 	/// </summary>
-	public partial class ColorPreviewView
+	public partial class ColorPreviewView : IColorPreviewView
 	{
 		private readonly ColorPreviewViewModel _colorPreviewViewModel;
 

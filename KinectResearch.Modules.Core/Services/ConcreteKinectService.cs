@@ -110,6 +110,14 @@ namespace KinectResearch.Modules.Core.Services
 				Kinect.SkeletonFrameReady += OnRunTimeSkeletonFrameReady;
 
 				Kinect.SkeletonEngine.TransformSmooth = true;
+				//var parameters = new TransformSmoothParameters
+				//{
+				//    Smoothing = 0.75f,
+				//    Correction = 0.0f,
+				//    Prediction = 0.0f,
+				//    JitterRadius = 0.05f,
+				//    MaxDeviationRadius = 0.04f
+				//};
 				var parameters = new TransformSmoothParameters
 				{
 					Smoothing = 1.0f,

@@ -10,6 +10,9 @@
   d:DataContext="{d:DesignInstance Views:SkeletonPreviewViewModel}">
 	<Controls:CanvasEx
 		x:Name="MainCanvas" 
+		Width="480"
+		Height="320"
+		Background="Yellow"
 		PanelWidth="{Binding ActualControlWidth, Mode=OneWayToSource}"
 		PanelHeight="{Binding ActualControlHeight, Mode=OneWayToSource}">
 		<Ellipse
@@ -25,7 +28,6 @@
 		<Ellipse
 			Height="50"
 			HorizontalAlignment="Left"
-			Margin="56,0,0,0"
 			x:Name="RightEllipse"
 			Stroke="Black"
 			VerticalAlignment="Top"
@@ -36,7 +38,6 @@
 		<Ellipse
 			Height="50"
 			HorizontalAlignment="Left"
-			Margin="112,0,0,0"
 			x:Name="LeftEllipse"
 			Stroke="Black"
 			VerticalAlignment="Top"
