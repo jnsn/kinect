@@ -58,6 +58,10 @@
     <Compile Include="Events\SwitchMenu.cs" />
     <Compile Include="Events\SwitchPreviewView.cs" />
     <Compile Include="Events\VideoFrameUpdate.cs" />
+    <Compile Include="Interfaces\IDetailsView.cs" />
+    <Compile Include="Interfaces\IDetailsViewModel.cs" />
+    <Compile Include="Interfaces\IMenuViewModel.cs" />
+    <Compile Include="Interfaces\IModuleController.cs" />
     <Compile Include="Interfaces\IPreviewService.cs" />
     <Compile Include="VisualTreeHelperExtensions.cs" />
     <Compile Include="Interfaces\IColorPreviewView.cs" />

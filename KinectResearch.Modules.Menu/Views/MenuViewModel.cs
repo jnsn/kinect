@@ -2,6 +2,7 @@
 using Coding4Fun.Kinect.Wpf;
 using KinectResearch.Infrastructure;
 using KinectResearch.Infrastructure.Events;
+using KinectResearch.Infrastructure.Interfaces;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Research.Kinect.Nui;
@@ -62,7 +63,7 @@ namespace KinectResearch.Modules.Menu.Views
 				.Where(joint => (joint.Position.W >= .8f) && (joint.TrackingState == JointTrackingState.Tracked))
 				.Where(joint => joint.ID == JointID.HandRight);
 
-			foreach (var scaled in joints.Select(joint => joint.ScaleTo(640, 480, 0.7f, 0.7f)))
+			foreach (var scaled in joints.Select(joint => joint.ScaleTo(640, 480, 0.5f, 0.5f)))
 			{
 				JointX = scaled.Position.X;
 				JointY = scaled.Position.Y;
@@ -79,9 +80,5 @@ namespace KinectResearch.Modules.Menu.Views
 		{
 			_eventAggregator.GetEvent<SwitchPreviewView>().Publish(PreviewView.Color);
 		}
-	}
-
-	public interface IMenuViewModel
-	{
 	}
 }

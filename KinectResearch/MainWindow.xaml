@@ -4,7 +4,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:cal="http://www.codeplex.com/CompositeWPF"
   Title="MainWindow" Height="480" Width="1280">
-  <Grid Background="#FFF5F3BE">
+  <Grid>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="700"/>
       <ColumnDefinition Width="580"/>

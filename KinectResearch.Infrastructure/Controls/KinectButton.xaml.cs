@@ -2,7 +2,6 @@
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Threading;
 using Microsoft.Practices.Prism.Commands;
 
@@ -19,8 +18,8 @@ namespace KinectResearch.Infrastructure.Controls
 		public static readonly DependencyProperty JointYPositionProperty =
 			DependencyProperty.Register("JointYPosition", typeof (double), typeof (KinectButton), new PropertyMetadata(0.0, OnJointYPositionChanged));
 
-		public static readonly DependencyProperty ImageProperty =
-			DependencyProperty.Register("Image", typeof (ImageSource), typeof (KinectButton), new PropertyMetadata(null));
+		public static readonly DependencyProperty TextProperty =
+			DependencyProperty.Register("Text", typeof (string), typeof (KinectButton), new PropertyMetadata("Button"));
 
 		public static readonly DependencyProperty CommandProperty =
 			DependencyProperty.Register("Command", typeof (DelegateCommand), typeof (KinectButton), new PropertyMetadata(null));
@@ -31,7 +30,7 @@ namespace KinectResearch.Infrastructure.Controls
 		{
 			InitializeComponent();
 
-			_timer = new Timer {Interval = 3000};
+			_timer = new Timer {Interval = 2000};
 			_timer.Elapsed += OnTimerElapsed;
 		}
 
@@ -52,10 +51,10 @@ namespace KinectResearch.Infrastructure.Controls
 			set { SetValue(JointYPositionProperty, value); }
 		}
 
-		public ImageSource Image
+		public string Text
 		{
-			get { return GetValue(ImageProperty) as ImageSource; }
-			set { SetValue(ImageProperty, value); }
+			get { return GetValue(TextProperty) as string; }
+			set { SetValue(TextProperty, value); }
 		}
 
 		public DelegateCommand Command
@@ -134,7 +133,7 @@ namespace KinectResearch.Infrastructure.Controls
 			double top = point.Y;
 			double bottom = top + button.ActualHeight;
 
-			return ((x > left) && (x < right - 25)) && ((y > top) && (y < bottom - 25));
+			return ((x > left) && (x < right)) && ((y > top) && (y < bottom));
 		}
 	}
 }

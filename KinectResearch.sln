@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectResearch.Modules.Prev
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectResearch.Modules.Menu", "KinectResearch.Modules.Menu\KinectResearch.Modules.Menu.csproj", "{AE8D082A-4D78-4558-B34C-9B7315517CE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectResearch.Modules.Details", "KinectResearch.Modules.Details\KinectResearch.Modules.Details.csproj", "{2898D72A-86D0-4588-83BB-D95AA6568177}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{AE8D082A-4D78-4558-B34C-9B7315517CE1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{AE8D082A-4D78-4558-B34C-9B7315517CE1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{AE8D082A-4D78-4558-B34C-9B7315517CE1}.Release|x86.ActiveCfg = Release|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2898D72A-86D0-4588-83BB-D95AA6568177}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

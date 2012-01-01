@@ -1,6 +1,4 @@
-﻿using KinectResearch.Infrastructure.Interfaces;
-using KinectResearch.Modules.Core.Services;
-using Microsoft.Practices.Prism.Modularity;
+﻿using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Unity;
 
 namespace KinectResearch.Modules.Core
@@ -12,23 +10,15 @@ namespace KinectResearch.Modules.Core
 		public CoreModule(IUnityContainer unityContainer)
 		{
 			_unityContainer = unityContainer;
-
-			_unityContainer.RegisterType<ISettingsService, SettingsService>(new ContainerControlledLifetimeManager());
-			_unityContainer.RegisterType<IKinectService, ConcreteKinectService>(new ContainerControlledLifetimeManager());
 		}
 
 		#region IModule Members
 
 		public void Initialize()
 		{
-			_unityContainer.Resolve<IKinectService>().Initialize();
+			_unityContainer.RegisterType<ICoreController, CoreController>(new ContainerControlledLifetimeManager());
 		}
 
 		#endregion
-
-		public void Uninitialize()
-		{
-			_unityContainer.Resolve<IKinectService>().Uninitialize();
-		}
 	}
 }

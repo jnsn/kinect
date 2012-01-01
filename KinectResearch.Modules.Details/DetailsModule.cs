@@ -1,13 +1,13 @@
 ﻿using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Unity;
 
-namespace KinectResearch.Modules.Preview
+namespace KinectResearch.Modules.Details
 {
-	public class PreviewModule : IModule
+	public class DetailsModule : IModule
 	{
 		private readonly IUnityContainer _unityContainer;
 
-		public PreviewModule(IUnityContainer unityContainer)
+		public DetailsModule(IUnityContainer unityContainer)
 		{
 			_unityContainer = unityContainer;
 		}
@@ -16,7 +16,7 @@ namespace KinectResearch.Modules.Preview
 
 		public void Initialize()
 		{
-			_unityContainer.RegisterType<IPreviewController, PreviewController>(new ContainerControlledLifetimeManager());
+			_unityContainer.RegisterType<IDetailsController, DetailsController>(new ContainerControlledLifetimeManager());
 		}
 
 		#endregion

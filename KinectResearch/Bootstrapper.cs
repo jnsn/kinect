@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using KinectResearch.Modules.Core;
+using KinectResearch.Modules.Details;
 using KinectResearch.Modules.Menu;
 using KinectResearch.Modules.Preview;
+using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.Unity;
 
@@ -17,17 +19,29 @@ namespace KinectResearch
 			return mainWindow;
 		}
 
+		protected override IModuleCatalog CreateModuleCatalog()
+		{
+			return new ModuleCatalog()
+				.AddModule(typeof (CoreModule))
+				.AddModule(typeof (MenuModule), "CoreModule")
+				.AddModule(typeof (PreviewModule), "CoreModule")
+				.AddModule(typeof (DetailsModule), "CoreModule");
+		}
+
 		protected override void InitializeModules()
 		{
-			Container.Resolve<CoreModule>().Initialize();
-			Container.Resolve<PreviewModule>().Initialize();
-			Container.Resolve<MenuModule>().Initialize();
+			base.InitializeModules();
+
+			Container.Resolve<ICoreController>().Initialize();
+			Container.Resolve<IPreviewController>().Initialize();
+			Container.Resolve<IMenuController>().Initialize();
+			Container.Resolve<IDetailsController>().Initialize();
 		}
 
 		public void UninitializeModules()
 		{
-			Container.Resolve<CoreModule>().Uninitialize();
-			Container.Resolve<PreviewModule>().Uninitialize();
+			Container.Resolve<ICoreController>().Uninitialize();
+			Container.Resolve<IPreviewController>().Uninitialize();
 		}
 	}
 }

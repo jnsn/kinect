@@ -104,9 +104,17 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KinectResearch.Infrastructure\KinectResearch.Infrastructure.csproj">
+      <Project>{200DB3D8-F9FC-4290-8E1D-53091DF2B4DD}</Project>
+      <Name>KinectResearch.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KinectResearch.Modules.Core\KinectResearch.Modules.Core.csproj">
       <Project>{6818B05A-1BAF-463A-B538-288F95CF87F9}</Project>
       <Name>KinectResearch.Modules.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KinectResearch.Modules.Details\KinectResearch.Modules.Details.csproj">
+      <Project>{2898D72A-86D0-4588-83BB-D95AA6568177}</Project>
+      <Name>KinectResearch.Modules.Details</Name>
     </ProjectReference>
     <ProjectReference Include="..\KinectResearch.Modules.Menu\KinectResearch.Modules.Menu.csproj">
       <Project>{AE8D082A-4D78-4558-B34C-9B7315517CE1}</Project>

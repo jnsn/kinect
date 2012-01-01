@@ -9,7 +9,7 @@
 	mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance {x:Type Views:MenuViewModel}}">
 	
-	<Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="640" Height="480">
+	<Grid Width="640" Height="480" VerticalAlignment="Center" HorizontalAlignment="Center">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition/>
 			<ColumnDefinition/>
@@ -18,8 +18,8 @@
 			<RowDefinition/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-		<Controls:KinectButton Image="RedButton-Active.png" Width="120" Height="120" JointXPosition="{Binding JointX}" JointYPosition="{Binding JointY}" Command="{Binding SwitchToColorPreviewCommand}"/>
-		<Controls:KinectButton Grid.Column="1" Width="120" Height="120" Image="BlueButton-Active.png" JointXPosition="{Binding JointX}" JointYPosition="{Binding JointY}" Command="{Binding SwitchToSkeletonPreviewCommand}"/>
+		<Controls:KinectButton JointXPosition="{Binding JointX}" JointYPosition="{Binding JointY}" Command="{Binding SwitchToColorPreviewCommand}" Text="Color" VerticalAlignment="Center" HorizontalAlignment="Center" Width="120" Height="40"/>
+		<Controls:KinectButton Grid.Column="1" JointXPosition="{Binding JointX}" JointYPosition="{Binding JointY}" Command="{Binding SwitchToSkeletonPreviewCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Skeleton" Width="120" Height="40"/>
 		<Canvas x:Name="CursorCanvas" Grid.RowSpan="2" Grid.ColumnSpan="2">
 			<Ellipse Fill="#FF31318F" Height="20" Stroke="Black" Width="20" Canvas.Left="{Binding JointX}" Canvas.Top="{Binding JointY}"/>
 		</Canvas>
