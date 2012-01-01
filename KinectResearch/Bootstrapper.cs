@@ -3,6 +3,7 @@ using KinectResearch.Modules.Core;
 using KinectResearch.Modules.Details;
 using KinectResearch.Modules.Menu;
 using KinectResearch.Modules.Preview;
+using KinectResearch.Services;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.Unity;
@@ -32,16 +33,23 @@ namespace KinectResearch
 		{
 			base.InitializeModules();
 
+			Container.RegisterType<IViewService, ViewService>(new ContainerControlledLifetimeManager());
+
 			Container.Resolve<ICoreController>().Initialize();
 			Container.Resolve<IPreviewController>().Initialize();
 			Container.Resolve<IMenuController>().Initialize();
 			Container.Resolve<IDetailsController>().Initialize();
+
+			// Initialize view service.
+			Container.Resolve<IViewService>().Initialize();
 		}
 
 		public void UninitializeModules()
 		{
+			// Uninitialize view service.
+			Container.Resolve<IViewService>().Uninitialize();
+
 			Container.Resolve<ICoreController>().Uninitialize();
-			Container.Resolve<IPreviewController>().Uninitialize();
 		}
 	}
 }

@@ -20,8 +20,6 @@ namespace KinectResearch.Modules.Menu.Views
 		{
 			_eventAggregator = eventAggregator;
 
-			_eventAggregator.GetEvent<SkeletonFrameUpdate>().Subscribe(OnSkeletonFrameUpdate);
-
 			SwitchToSkeletonPreviewCommand = new DelegateCommand(OnSwitchToSkeletonPreviewCommand);
 			SwitchToColorPreviewCommand = new DelegateCommand(OnSwitchToColorPreviewCommand);
 		}
@@ -55,6 +53,20 @@ namespace KinectResearch.Modules.Menu.Views
 				}
 			}
 		}
+
+		#region IMenuViewModel Members
+
+		public void Initialize()
+		{
+			_eventAggregator.GetEvent<SkeletonFrameUpdate>().Subscribe(OnSkeletonFrameUpdate);
+		}
+
+		public void Uninitialize()
+		{
+			_eventAggregator.GetEvent<SkeletonFrameUpdate>().Unsubscribe(OnSkeletonFrameUpdate);
+		}
+
+		#endregion
 
 		private void OnSkeletonFrameUpdate(SkeletonData data)
 		{

@@ -2,20 +2,17 @@ using System;
 using KinectResearch.Infrastructure.Interfaces;
 using KinectResearch.Modules.Menu.Services;
 using KinectResearch.Modules.Menu.Views;
-using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 
 namespace KinectResearch.Modules.Menu
 {
 	public class MenuController : IMenuController
 	{
-		private readonly IRegionManager _regionManager;
 		private readonly IUnityContainer _unityContainer;
 
-		public MenuController(IUnityContainer unityContainer, IRegionManager regionManager)
+		public MenuController(IUnityContainer unityContainer)
 		{
 			_unityContainer = unityContainer;
-			_regionManager = regionManager;
 		}
 
 		#region IMenuController Members
@@ -28,10 +25,6 @@ namespace KinectResearch.Modules.Menu
 
 			// Initialize service.
 			_unityContainer.Resolve<IMenuService>();
-
-			var view = _unityContainer.Resolve<IMenuView>();
-			_regionManager.Regions["LeftRegion"].Add(view);
-			_regionManager.Regions["LeftRegion"].Deactivate(view);
 		}
 
 		public void Uninitialize()

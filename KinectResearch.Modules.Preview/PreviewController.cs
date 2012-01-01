@@ -1,5 +1,5 @@
+using System;
 using KinectResearch.Infrastructure.Interfaces;
-using KinectResearch.Modules.Preview.Services;
 using KinectResearch.Modules.Preview.Views;
 using Microsoft.Practices.Unity;
 
@@ -20,14 +20,11 @@ namespace KinectResearch.Modules.Preview
 		{
 			_unityContainer.RegisterType<IColorPreviewView, ColorPreviewView>(new ContainerControlledLifetimeManager());
 			_unityContainer.RegisterType<ISkeletonPreviewView, SkeletonPreviewView>(new ContainerControlledLifetimeManager());
-			_unityContainer.RegisterType<IPreviewService, PreviewService>(new ContainerControlledLifetimeManager());
-
-			_unityContainer.Resolve<IPreviewService>().Initialize();
 		}
 
 		public void Uninitialize()
 		{
-			_unityContainer.Resolve<IPreviewService>().Uninitialize();
+			throw new NotImplementedException();
 		}
 
 		#endregion

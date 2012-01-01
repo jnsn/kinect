@@ -1,4 +1,5 @@
-﻿using KinectResearch.Infrastructure.Interfaces;
+﻿using System.Windows;
+using KinectResearch.Infrastructure.Interfaces;
 
 namespace KinectResearch.Modules.Menu.Views
 {
@@ -11,6 +12,9 @@ namespace KinectResearch.Modules.Menu.Views
 
 		public MenuView()
 		{
+			Loaded += OnControlLoaded;
+			Unloaded += OnControlUnloaded;
+
 			InitializeComponent();
 		}
 
@@ -20,6 +24,16 @@ namespace KinectResearch.Modules.Menu.Views
 			_menuViewModel = menuViewModel;
 
 			DataContext = _menuViewModel;
+		}
+
+		private void OnControlLoaded(object sender, RoutedEventArgs e)
+		{
+			_menuViewModel.Initialize();
+		}
+
+		private void OnControlUnloaded(object sender, RoutedEventArgs e)
+		{
+			_menuViewModel.Uninitialize();
 		}
 	}
 }
