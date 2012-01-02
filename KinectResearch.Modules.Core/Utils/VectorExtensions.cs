@@ -9,5 +9,10 @@ namespace KinectResearch.Modules.Core.Utils
 		{
 			return new Vector3(vector.X, vector.Y, vector.Z);
 		}
+
+		public static string Print(this Vector3 vector)
+		{
+			return string.Format("X: {0}; Y: {1}; Z: {2}", vector.X, vector.Y, vector.Z);
+		}
 	}
 }

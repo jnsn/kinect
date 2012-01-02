@@ -25,7 +25,7 @@ namespace KinectResearch.Modules.Menu.Services
 
 			_eventAggregator.GetEvent<SkeletonFrameUpdate>().Subscribe(OnSkeletonFrameUpdate);
 
-			_gestureDetector.MinimalPeriodBetweenGestures = 1000;
+			_gestureDetector.MinimalPeriodBetweenGestures = 500;
 			_gestureDetector.GestureDetected += OnGestureDetected;
 		}
 

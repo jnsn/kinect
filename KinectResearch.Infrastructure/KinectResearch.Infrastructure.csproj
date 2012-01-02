@@ -54,12 +54,16 @@
     <Compile Include="Converters\AbstractMarkupExtension.cs" />
     <Compile Include="Converters\AbstractValueConverter.cs" />
     <Compile Include="Converters\BoolToScaleXConverter.cs" />
+    <Compile Include="Converters\EnumToVisibilityConverter.cs" />
+    <Compile Include="Events\FootPositionChanged.cs" />
     <Compile Include="Events\SkeletonFrameUpdate.cs" />
     <Compile Include="Events\SwitchMenu.cs" />
     <Compile Include="Events\SwitchPreviewView.cs" />
     <Compile Include="Events\VideoFrameUpdate.cs" />
+    <Compile Include="FootMovement.cs" />
     <Compile Include="Interfaces\IDetailsView.cs" />
     <Compile Include="Interfaces\IDetailsViewModel.cs" />
+    <Compile Include="Interfaces\IFootDetailsService.cs" />
     <Compile Include="Interfaces\IMenuViewModel.cs" />
     <Compile Include="Interfaces\IModuleController.cs" />
     <Compile Include="VisualTreeHelperExtensions.cs" />

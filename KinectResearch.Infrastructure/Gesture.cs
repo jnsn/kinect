@@ -5,5 +5,7 @@
 		None,
 		Right,
 		Left,
+		FootUp,
+		FootDown,
 	}
 }

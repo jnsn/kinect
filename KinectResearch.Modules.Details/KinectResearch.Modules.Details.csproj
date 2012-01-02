@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.Prism">
@@ -55,6 +57,7 @@
     <Compile Include="DetailsModule.cs" />
     <Compile Include="IDetailsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FootDetailsService.cs" />
     <Compile Include="Views\DetailsView.xaml.cs">
       <DependentUpon>DetailsView.xaml</DependentUpon>
     </Compile>
@@ -70,6 +73,10 @@
     <ProjectReference Include="..\KinectResearch.Infrastructure\KinectResearch.Infrastructure.csproj">
       <Project>{200DB3D8-F9FC-4290-8E1D-53091DF2B4DD}</Project>
       <Name>KinectResearch.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KinectResearch.Modules.Core\KinectResearch.Modules.Core.csproj">
+      <Project>{6818B05A-1BAF-463A-B538-288F95CF87F9}</Project>
+      <Name>KinectResearch.Modules.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

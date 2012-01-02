@@ -54,6 +54,7 @@
     <Compile Include="CoreModule.cs" />
     <Compile Include="Gestures\AbstractGestureDetector.cs" />
     <Compile Include="Gestures\Entry.cs" />
+    <Compile Include="Gestures\FootCycleGestureDetector.cs" />
     <Compile Include="Gestures\SwipeGestureDetector.cs" />
     <Compile Include="Gestures\Vector3.cs" />
     <Compile Include="ICoreController.cs" />

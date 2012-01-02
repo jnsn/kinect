@@ -5,7 +5,7 @@ namespace KinectResearch.Modules.Core.Gestures
 {
 	public class SwipeGestureDetector : AbstractGestureDetector
 	{
-		private const float SWIPE_MINIMAL_LENGTH = 0.4f;
+		private const float SWIPE_MINIMAL_LENGTH = 0.3f;
 		private const float SWIPE_MAXIMAL_DRIFT = 0.2f;
 		private const int SWIPE_MININAL_DURATION = 250;
 		private const int SWIPE_MAXIMAL_DURATION = 1500;
