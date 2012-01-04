@@ -69,8 +69,8 @@ namespace KinectResearch.Modules.Details.Services
 
 			if (joints.Count > 0)
 			{
-				_rightFootGestureDetector.Add(joints.FirstOrDefault(j => j.ID == JointID.FootRight).Position, _kinectService.Kinect.SkeletonEngine);
-				_leftFootGestureDetector.Add(joints.FirstOrDefault(j => j.ID == JointID.FootLeft).Position, _kinectService.Kinect.SkeletonEngine);
+				_rightFootGestureDetector.Add(joints.FirstOrDefault(j => j.ID == JointID.KneeRight).Position, _kinectService.Kinect.SkeletonEngine);
+				_leftFootGestureDetector.Add(joints.FirstOrDefault(j => j.ID == JointID.KneeLeft).Position, _kinectService.Kinect.SkeletonEngine);
 			}
 		}
 	}

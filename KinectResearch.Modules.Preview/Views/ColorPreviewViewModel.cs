@@ -15,6 +15,13 @@ namespace KinectResearch.Modules.Preview.Views
 		public ColorPreviewViewModel(IEventAggregator eventAggregator)
 		{
 			_eventAggregator = eventAggregator;
+
+			_eventAggregator.GetEvent<InvertColorPreview>().Subscribe(OnInvertColorPreview);
+		}
+
+		private void OnInvertColorPreview(object o)
+		{
+			Inverted = !Inverted;
 		}
 
 		public BitmapSource ImageSource

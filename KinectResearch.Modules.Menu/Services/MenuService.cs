@@ -3,7 +3,6 @@ using KinectResearch.Infrastructure;
 using KinectResearch.Infrastructure.Events;
 using KinectResearch.Infrastructure.Interfaces;
 using KinectResearch.Modules.Core.Gestures;
-using KinectResearch.Modules.Core.Utils;
 using Microsoft.Practices.Prism.Events;
 using Microsoft.Research.Kinect.Nui;
 
@@ -11,7 +10,6 @@ namespace KinectResearch.Modules.Menu.Services
 {
 	public class MenuService : IMenuService
 	{
-		private readonly BarycenterHelper _barycenterHelper = new BarycenterHelper();
 		private readonly IEventAggregator _eventAggregator;
 		private readonly AbstractGestureDetector _gestureDetector = new SwipeGestureDetector();
 		private readonly IKinectService _kinectService;
@@ -40,19 +38,14 @@ namespace KinectResearch.Modules.Menu.Services
 
 		private void OnSkeletonFrameUpdate(SkeletonData data)
 		{
-			_barycenterHelper.Add(data.Position.ToVector3(), data.TrackingID);
+			var joints = data.Joints
+				.Cast<Joint>()
+				.Where(joint => (joint.Position.W >= .8f) && (joint.TrackingState == JointTrackingState.Tracked))
+				.Where(joint => joint.ID == JointID.HandRight);
 
-			if (_barycenterHelper.IsStable(data.TrackingID))
+			foreach (var joint in joints)
 			{
-				var joints = data.Joints
-					.Cast<Joint>()
-					.Where(joint => (joint.Position.W >= .8f) && (joint.TrackingState == JointTrackingState.Tracked))
-					.Where(joint => joint.ID == JointID.HandRight);
-
-				foreach (var joint in joints)
-				{
-					_gestureDetector.Add(joint.Position, _kinectService.Kinect.SkeletonEngine);
-				}
+				_gestureDetector.Add(joint.Position, _kinectService.Kinect.SkeletonEngine);
 			}
 		}
 	}

@@ -17,7 +17,6 @@ namespace KinectResearch.Modules.Core
 
 		public void Initialize()
 		{
-			_unityContainer.RegisterType<ISettingsService, SettingsService>(new ContainerControlledLifetimeManager());
 			_unityContainer.RegisterType<IKinectService, ConcreteKinectService>(new ContainerControlledLifetimeManager());
 
 			_unityContainer.Resolve<IKinectService>().Initialize();

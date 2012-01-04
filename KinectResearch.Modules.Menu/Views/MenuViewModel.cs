@@ -22,11 +22,14 @@ namespace KinectResearch.Modules.Menu.Views
 
 			SwitchToSkeletonPreviewCommand = new DelegateCommand(OnSwitchToSkeletonPreviewCommand);
 			SwitchToColorPreviewCommand = new DelegateCommand(OnSwitchToColorPreviewCommand);
+			InvertColorPreviewCommand = new DelegateCommand(OnInvertColorPreviewCommand);
 		}
 
 		public DelegateCommand SwitchToSkeletonPreviewCommand { get; private set; }
 
 		public DelegateCommand SwitchToColorPreviewCommand { get; private set; }
+
+		public DelegateCommand InvertColorPreviewCommand { get; private set; }
 
 		public double JointX
 		{
@@ -91,6 +94,11 @@ namespace KinectResearch.Modules.Menu.Views
 		private void OnSwitchToColorPreviewCommand()
 		{
 			_eventAggregator.GetEvent<SwitchPreviewView>().Publish(PreviewView.Color);
+		}
+
+		private void OnInvertColorPreviewCommand()
+		{
+			_eventAggregator.GetEvent<InvertColorPreview>().Publish(null);
 		}
 	}
 }
